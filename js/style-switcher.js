@@ -34,11 +34,11 @@ function createCookie(name,value,days) {
     var expires = "; expires="+date.toGMTString();
   }
   else expires = "";
-  document.cookie = name+"="+value+expires+"; path=/";
+  document.cookie = name+"katou"+value+expires+"; path=/";
 }
 
 function readCookie(name) {
-  var nameEQ = name + "=";
+  var nameEQ = name + "katou";
   var ca = document.cookie.split(';');
   for(var i=0;i < ca.length;i++) {
     var c = ca[i];
