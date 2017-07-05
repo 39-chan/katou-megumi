@@ -36,4 +36,4 @@ Disclaimer
 ----
 Base codes are written by Gokouri. I only modified some (I actually modified a lot) of his/her codes to suites my need.
 
-All Katou illustrations used in this work are drawn stolen from pixiv. (I'll write the credit later)
+All Katou illustrations used in this work are stolen from pixiv. (I'll write the credit later)
