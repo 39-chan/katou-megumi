@@ -16,10 +16,51 @@
         <script type="text/javascript" src="themes/mascots.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/mascots-control.js"></script>
+		<script type="text/javascript" src="js/modal-control.js"></script>
 		<script type="text/javascript" src="js/text-control.js"></script>
 		<script type="text/javascript" src="js/style-switcher.js"></script>
+		<style>
+			/* The Modal (background) */
+			.modal
+			{
+				display: none; /* Hidden by default */
+				position: fixed; /* Stay in place */
+				z-index: 1; /* Sit on top */
+				left: 0;
+				top: 0;
+				width: 100%; /* Full width */
+				height: 100%; /* Full height */
+				overflow: none; /* Set to auto to enable scroll if needed */
+				background-color: rgb(0,0,0); /* Fallback color */
+				background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+			}
+			/* Modal Content/Box */
+			.modal-content
+			{
+				background-color: #fefefe;
+				margin: 5% auto; /* 15% from the top and centered */
+				padding: 20px;
+				border: 1px solid #888;
+				width: 50%; /* Could be more or less, depending on screen size */
+			}
+			/* The Close Button */
+			.close
+			{
+				color: #aaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+				transition: all 200ms
+			}
+			.close:hover, .close:focus
+			{
+				color: black;
+				text-decoration: none;
+				cursor: pointer;
+			}		
+		</style>
     </head>
-    <body>
+    <body onkeydown="modalSettings()">
         <main>
             <header>
                 <!--<h1 style="cursor: default;">Welcome, <span class="name-highlight">Goshuujin-sama</span></h1>-->
@@ -27,19 +68,19 @@
             </header>
             <section class="searchContainer">
                 <form class="searchForm" method="get" action="https://google.com/search" target="_blank">
-                    <input class="searchBar search_google" type="text" name="q" placeholder="Google" autofocus="autofocus" search_/>
+                    <input class="searchBar search_google" type="text" name="q" placeholder="Google" autofocus="autofocus" required search_/>
                 </form>
                 <form class="searchForm" method="get" action="https://youtube.com/results" target="_blank">
-                    <input class="searchBar search_youtube" type="text" name="search_query" placeholder="YouTube" search_/>
+                    <input class="searchBar search_youtube" type="text" name="search_query" placeholder="YouTube" required search_/>
                 </form>
                 <form class="searchForm" method="get" action="https://myanimelist.net/search/all?q=" target="_blank">
-                    <input class="searchBar search_myanimelist" type="text" name="q" placeholder="MyAnimeList" search_/>
+                    <input class="searchBar search_myanimelist" type="text" name="q" placeholder="MyAnimeList" required search_/>
                 </form>
-                <form class="searchForm" method="get" action="https://nyaa.si/?q=">
-                    <input class="searchBar search_nyaa" type="text" name="q" placeholder="Nyaa" search_/>
+                <form class="searchForm" method="get" action="https://nyaa.si/?q=" target="_blank">
+                    <input class="searchBar search_nyaa" type="text" name="q" placeholder="Nyaa" required search_/>
                 </form>
                 <form class="searchForm" method="get" action="https://nyaa.pantsu.cat/search?q=" target="_blank">
-                    <input class="searchBar search_nyaa-pantsu" type="text" name="q" placeholder="Nyaa Pantsu" search_/>
+                    <input class="searchBar search_nyaa-pantsu" type="text" name="q" placeholder="Nyaa Pantsu" required search_/>
                 </form>
             </section>
             <nav>
@@ -115,6 +156,21 @@
 				<li class="column column_pink" style="cursor: pointer;"><a style="font-size: 15px;" onclick="setActiveStyleSheet('kato-light'); return false;">Light</a></li>
 				<li class="column column_pink" style="cursor: pointer;"><a style="font-size: 15px;" onclick="setActiveStyleSheet('kato-black'); return false;">Black</a></li>
 				<li class="column column_pink" style="cursor: pointer;"><a style="font-size: 15px;" onclick="setActiveStyleSheet('kato-pink'); return false;">Pink</a></li>
+			</div>
+			<div id="myModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p style="font-size: 16px; font-weight: bold;">Settings</p>
+					<hr>
+					<div align="left">
+						<form action="">
+							<input type="checkbox" name="" value="">Test 1</input><br>
+							<input type="checkbox" name="" value="">Test 2</input><br>
+							<input type="checkbox" name="" value="">Test 3</input><br><br>
+							<button type="button" disabled>Save</button>
+						</form>
+					</div>
+				</div>
 			</div>
         </main>
     </body>
